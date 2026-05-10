@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* SideKaam — warm, confident palette */
+    --background: 252 251 248;
+    --foreground: 28 25 23;
+    --card: 255 255 255;
+    --card-foreground: 28 25 23;
+    --popover: 255 255 255;
+    --popover-foreground: 28 25 23;
+    --primary: 16 185 129;
+    --primary-foreground: 255 255 255;
+    --secondary: 245 243 238;
+    --secondary-foreground: 28 25 23;
+    --muted: 245 243 238;
+    --muted-foreground: 120 113 108;
+    --accent: 245 243 238;
+    --accent-foreground: 28 25 23;
+    --destructive: 239 68 68;
+    --border: 231 229 224;
+    --input: 231 229 224;
+    --ring: 16 185 129;
+
+    /* Brand */
+    --sk-emerald: 16 185 129;
+    --sk-amber: 245 158 11;
+    --sk-indigo: 99 102 241;
+    --sk-rose: 244 63 94;
+    --sk-teal: 20 184 166;
+    --sk-warm: 120 113 108;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 23 23 23;
+    --foreground: 245 245 245;
+    --card: 38 38 38;
+    --card-foreground: 245 245 245;
+    --popover: 38 38 38;
+    --popover-foreground: 245 245 245;
+    --primary: 16 185 129;
+    --primary-foreground: 255 255 255;
+    --secondary: 50 50 50;
+    --secondary-foreground: 245 245 245;
+    --muted: 50 50 50;
+    --muted-foreground: 163 163 163;
+    --accent: 50 50 50;
+    --accent-foreground: 245 245 245;
+    --destructive: 239 68 68;
+    --border: 64 64 64;
+    --input: 64 64 64;
+    --ring: 16 185 129;
+
+    --sk-emerald: 52 211 153;
+    --sk-amber: 251 191 36;
+    --sk-indigo: 129 140 248;
+    --sk-rose: 251 113 133;
+    --sk-teal: 45 212 191;
+    --sk-warm: 163 163 163;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "ss02", "cv01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* iOS zoom prevention */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(16 185 129 / 0.3); }
+  50% { box-shadow: 0 0 0 8px rgb(16 185 129 / 0); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-scale {
+  animation: fadeScale 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 50ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 100ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 150ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 250ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 350ms; }
+.stagger-children > *:nth-child(9) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(10) { animation-delay: 450ms; }
